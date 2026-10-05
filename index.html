@@ -1,1263 +1,186 @@
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <meta name="description"
-        content="Gunasekar K - GenAI Developer and Full Stack Developer specializing in Angular, Node.js, AI Automation, RAG, PostgreSQL and AWS.">
-
-  <meta name="author" content="Gunasekar K">
-
-  <title>Gunasekar K | GenAI Developer & Full Stack Developer</title>
-
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      font-family: Inter, Arial, sans-serif;
-      background: #ffffff;
-      color: #171717;
-      line-height: 1.6;
-    }
-
-    a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    .container {
-      width: min(1180px, 92%);
-      margin: auto;
-    }
-
-    /* NAVIGATION */
-
-    nav {
-      height: 76px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-bottom: 1px solid #eeeeee;
-    }
-
-    .logo {
-      font-size: 20px;
-      font-weight: 800;
-      letter-spacing: -0.5px;
-    }
-
-    .nav-links {
-      display: flex;
-      gap: 30px;
-      font-size: 14px;
-      color: #666;
-    }
-
-    .nav-links a:hover {
-      color: #111;
-    }
-
-    /* HERO */
-
-    .hero {
-      padding: 115px 0 90px;
-    }
-
-    .availability {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      font-size: 13px;
-      color: #555;
-      margin-bottom: 28px;
-    }
-
-    .dot {
-      width: 8px;
-      height: 8px;
-      background: #20a464;
-      border-radius: 50%;
-    }
-
-    .hero h1 {
-      font-size: clamp(48px, 7vw, 86px);
-      line-height: 0.98;
-      letter-spacing: -4px;
-      max-width: 1000px;
-      margin-bottom: 28px;
-    }
-
-    .hero h1 span {
-      color: #635bff;
-    }
-
-    .hero-subtitle {
-      font-size: 23px;
-      color: #555;
-      max-width: 780px;
-      line-height: 1.5;
-      margin-bottom: 28px;
-    }
-
-    .hero-description {
-      font-size: 17px;
-      color: #777;
-      max-width: 720px;
-      margin-bottom: 35px;
-    }
-
-    .buttons {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    .btn {
-      padding: 13px 20px;
-      border: 1px solid #dddddd;
-      border-radius: 8px;
-      font-size: 14px;
-      font-weight: 600;
-      background: #fff;
-      transition: 0.2s;
-    }
-
-    .btn:hover {
-      border-color: #111;
-      transform: translateY(-2px);
-    }
-
-    .btn-primary {
-      background: #111;
-      color: #fff;
-      border-color: #111;
-    }
-
-    /* INTRO */
-
-    .intro {
-      border-top: 1px solid #eeeeee;
-      border-bottom: 1px solid #eeeeee;
-      padding: 55px 0;
-    }
-
-    .intro-grid {
-      display: grid;
-      grid-template-columns: 1fr 2fr;
-      gap: 60px;
-    }
-
-    .intro-label {
-      font-size: 13px;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      color: #888;
-      font-weight: 700;
-    }
-
-    .intro-text {
-      font-size: 24px;
-      line-height: 1.55;
-      max-width: 850px;
-    }
-
-    /* SECTION */
-
-    section {
-      padding: 100px 0;
-      border-bottom: 1px solid #eeeeee;
-    }
-
-    .section-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: end;
-      margin-bottom: 55px;
-    }
-
-    .section-number {
-      font-size: 13px;
-      color: #999;
-      letter-spacing: 1px;
-    }
-
-    .section-title {
-      font-size: 42px;
-      letter-spacing: -1.5px;
-      margin-top: 8px;
-    }
-
-    /* AI PROJECT */
-
-    .featured-project {
-      border-top: 1px solid #111;
-      padding-top: 35px;
-    }
-
-    .project-top {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 80px;
-    }
-
-    .project-title {
-      font-size: 38px;
-      letter-spacing: -1px;
-      margin-bottom: 18px;
-    }
-
-    .project-description {
-      color: #666;
-      font-size: 17px;
-      max-width: 600px;
-      margin-bottom: 25px;
-    }
-
-    .tech-stack {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 28px;
-    }
-
-    .tech {
-      padding: 6px 10px;
-      border: 1px solid #dddddd;
-      border-radius: 5px;
-      font-size: 12px;
-      color: #555;
-    }
-
-    /* WORKFLOW */
-
-    .workflow {
-      border: 1px solid #dddddd;
-      padding: 30px;
-      background: #fafafa;
-    }
-
-    .workflow-title {
-      font-size: 13px;
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      color: #888;
-      margin-bottom: 25px;
-    }
-
-    .workflow-step {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-      padding: 15px 0;
-      border-bottom: 1px solid #e5e5e5;
-    }
-
-    .workflow-step:last-child {
-      border-bottom: none;
-    }
-
-    .step-number {
-      width: 30px;
-      height: 30px;
-      border: 1px solid #bbb;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 12px;
-      font-weight: bold;
-    }
-
-    .step-content strong {
-      display: block;
-      font-size: 14px;
-    }
-
-    .step-content span {
-      font-size: 12px;
-      color: #888;
-    }
-
-    .project-links {
-      display: flex;
-      gap: 20px;
-    }
-
-    .project-links a {
-      font-size: 14px;
-      font-weight: 700;
-      text-decoration: underline;
-      text-underline-offset: 4px;
-    }
-
-    /* GENAI CAPABILITIES */
-
-    .capabilities {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      border-top: 1px solid #ddd;
-      border-left: 1px solid #ddd;
-    }
-
-    .capability {
-      padding: 32px;
-      border-right: 1px solid #ddd;
-      border-bottom: 1px solid #ddd;
-    }
-
-    .capability-number {
-      font-size: 12px;
-      color: #999;
-      margin-bottom: 25px;
-    }
-
-    .capability h3 {
-      font-size: 21px;
-      margin-bottom: 12px;
-    }
-
-    .capability p {
-      color: #777;
-      font-size: 14px;
-    }
-
-    /* PROJECT LIST */
-
-    .project-list {
-      border-top: 1px solid #111;
-    }
-
-    .project-row {
-      display: grid;
-      grid-template-columns: 70px 1fr 2fr 120px;
-      gap: 30px;
-      align-items: center;
-      padding: 30px 0;
-      border-bottom: 1px solid #dddddd;
-    }
-
-    .project-index {
-      color: #999;
-      font-size: 13px;
-    }
-
-    .project-row h3 {
-      font-size: 20px;
-    }
-
-    .project-row p {
-      color: #777;
-      font-size: 14px;
-    }
-
-    .project-type {
-      font-size: 12px;
-      color: #635bff;
-      font-weight: 700;
-    }
-
-    /* EXPERIENCE */
-
-    .experience {
-      border-top: 1px solid #111;
-    }
-
-    .experience-row {
-      display: grid;
-      grid-template-columns: 180px 1fr;
-      gap: 60px;
-      padding: 35px 0;
-      border-bottom: 1px solid #ddd;
-    }
-
-    .experience-date {
-      font-size: 13px;
-      color: #888;
-    }
-
-    .experience h3 {
-      font-size: 21px;
-      margin-bottom: 5px;
-    }
-
-    .company {
-      color: #666;
-      margin-bottom: 15px;
-    }
-
-    .experience p {
-      color: #777;
-      max-width: 800px;
-      font-size: 15px;
-    }
-
-    /* ARCHITECTURE */
-
-    .architecture {
-      border: 1px solid #ddd;
-      padding: 45px;
-      background: #fafafa;
-    }
-
-    .architecture-flow {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      overflow-x: auto;
-    }
-
-    .architecture-box {
-      min-width: 150px;
-      padding: 20px;
-      background: #fff;
-      border: 1px solid #ccc;
-      text-align: center;
-    }
-
-    .architecture-box strong {
-      display: block;
-      font-size: 14px;
-      margin-bottom: 5px;
-    }
-
-    .architecture-box span {
-      font-size: 11px;
-      color: #888;
-    }
-
-    .arrow {
-      color: #999;
-      font-size: 20px;
-    }
-
-    /* CONTACT */
-
-    .contact {
-      padding: 120px 0;
-      text-align: center;
-    }
-
-    .contact h2 {
-      font-size: clamp(42px, 6vw, 70px);
-      letter-spacing: -3px;
-      margin-bottom: 20px;
-    }
-
-    .contact p {
-      color: #777;
-      font-size: 18px;
-      margin-bottom: 30px;
-    }
-
-    .contact .buttons {
-      justify-content: center;
-    }
-
-    /* FOOTER */
-
-    footer {
-      padding: 30px 0;
-      color: #888;
-      font-size: 13px;
-    }
-
-    .footer-content {
-      display: flex;
-      justify-content: space-between;
-    }
-
-    /* MOBILE */
-
-    @media (max-width: 800px) {
-
-      .nav-links {
-        display: none;
-      }
-
-      .hero {
-        padding: 80px 0;
-      }
-
-      .hero h1 {
-        letter-spacing: -2px;
-      }
-
-      .intro-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-      }
-
-      .project-top {
-        grid-template-columns: 1fr;
-        gap: 40px;
-      }
-
-      .capabilities {
-        grid-template-columns: 1fr;
-      }
-
-      .project-row {
-        grid-template-columns: 40px 1fr;
-      }
-
-      .project-row p,
-      .project-type {
-        grid-column: 2;
-      }
-
-      .experience-row {
-        grid-template-columns: 1fr;
-        gap: 10px;
-      }
-
-      .architecture-flow {
-        flex-direction: column;
-      }
-
-      .arrow {
-        transform: rotate(90deg);
-      }
-
-      .footer-content {
-        flex-direction: column;
-        gap: 10px;
-      }
-    }
-  </style>
-</head>
-
-<body>
-
-  <!-- NAVIGATION -->
-
-  <div class="container">
-    <nav>
-      <div class="logo">GK.</div>
-
-      <div class="nav-links">
-        <a href="#work">Work</a>
-        <a href="#genai">GenAI</a>
-        <a href="#experience">Experience</a>
-        <a href="#contact">Contact</a>
-      </div>
-    </nav>
+<!-- =========================================
+     FEATURED PROJECT
+     PLACEMENT PREPARATION PORTAL
+========================================= -->
+
+<section class="featured-project" id="projects">
+
+  <div class="project-heading">
+    <span class="section-label">FEATURED PROJECT</span>
+
+    <h2>
+      Placement Preparation
+      <span>Portal</span>
+    </h2>
+
+    <p>
+      A full-stack placement preparation platform built for students and
+      administrators, with online assessments, timed tests, result tracking,
+      and an AI-powered interview module.
+    </p>
   </div>
 
 
-  <!-- HERO -->
+  <!-- PROJECT SCREENSHOTS -->
+  <div class="project-showcase">
 
-  <header class="hero">
-    <div class="container">
+    <!-- Main Screenshot -->
+    <div class="main-screenshot">
+      <img
+        src="./img/admin-dashboard.png"
+        alt="Placement Preparation Portal Dashboard"
+      />
+    </div>
 
-      <div class="availability">
-        <span class="dot"></span>
-        Available for opportunities
+    <!-- Small Screenshots -->
+    <div class="screenshot-grid">
+
+      <div class="screenshot-card">
+        <img
+          src="./img/login.png"
+          alt="Placement Portal Login"
+        />
       </div>
 
-      <h1>
-        GenAI Developer<br>
-        & <span>Full Stack Engineer.</span>
-      </h1>
-
-      <div class="hero-subtitle">
-        Building AI-powered applications, workflow automation
-        and production-ready full-stack systems.
+      <div class="screenshot-card">
+        <img
+          src="./img/result.png"
+          alt="Online Test Interface"
+        />
       </div>
 
-      <p class="hero-description">
-        4+ years of experience building enterprise applications with
-        Angular, Node.js and PostgreSQL. Currently focused on
-        Generative AI, AI agents, RAG systems and intelligent workflow
-        automation.
+      
+
+      <div class="screenshot-card">
+        <img
+          src="./img/add-student.png"
+          alt="Admin Dashboard"
+        />
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <!-- PROJECT INFORMATION -->
+  <div class="project-content">
+
+    <div class="project-description">
+
+      <span class="project-number">01</span>
+
+      <h3>
+        Full Stack Placement Preparation Platform
+      </h3>
+
+      <p>
+        Designed and developed a complete placement preparation application
+        using Angular, Node.js, Express and PostgreSQL. Students can log in,
+        attend timed assessments and view their results, while administrators
+        can manage the assessment workflow.
       </p>
 
-      <div class="buttons">
-        <a href="#work" class="btn btn-primary">
-          View my work →
-        </a>
-
-        <a
-          href="https://www.linkedin.com/in/gunasekar-k-790613147"
-          target="_blank"
-          class="btn">
-          LinkedIn
-        </a>
-
-        <a
-          href="mailto:gunagunasekar1996@gmail.com"
-          class="btn">
-          Email
-        </a>
-      </div>
-
-    </div>
-  </header>
-
-
-  <!-- INTRO -->
-
-  <section class="intro">
-
-    <div class="container">
-
-      <div class="intro-grid">
-
-        <div class="intro-label">
-          What I build
-        </div>
-
-        <div class="intro-text">
-          I build software where traditional full-stack engineering
-          meets Generative AI — from AI-powered interview systems
-          and RAG pipelines to workflow automation platforms and
-          cloud-deployed enterprise applications.
-        </div>
-
-      </div>
+      <p>
+        The next major module is an AI interview system where students select
+        a technical topic and participate in a 30-minute AI-driven interview
+        with automated evaluation and feedback.
+      </p>
 
     </div>
 
-  </section>
 
+    <!-- TECHNOLOGIES -->
+    <div class="project-tech">
 
-  <!-- FEATURED AI PROJECT -->
-
-  <section id="genai">
-
-    <div class="container">
-
-      <div class="section-header">
-
-        <div>
-          <div class="section-number">01 / FEATURED AI WORK</div>
-          <h2 class="section-title">GenAI & Automation</h2>
-        </div>
-
-      </div>
-
-
-      <div class="featured-project">
-
-        <div class="project-top">
-
-          <div>
-
-            <h3 class="project-title">
-              AI Engineering & Workflow Automation Platform
-            </h3>
-
-            <p class="project-description">
-              An intelligent workflow platform designed to connect
-              engineering tools, collect project information, process
-              knowledge and use AI to identify findings, patterns,
-              root causes and recommended actions.
-            </p>
-
-            <div class="tech-stack">
-              <span class="tech">Angular</span>
-              <span class="tech">Node.js</span>
-              <span class="tech">PostgreSQL</span>
-              <span class="tech">Milvus</span>
-              <span class="tech">RAG</span>
-              <span class="tech">LLM</span>
-              <span class="tech">Docker</span>
-              <span class="tech">BullMQ</span>
-              <span class="tech">Grafana</span>
-            </div>
-
-            <div class="project-links">
-
-              <a href="#">
-                Architecture →
-              </a>
-
-              <a href="#">
-                Git Repository →
-              </a>
-
-            </div>
-
-          </div>
-
-
-          <!-- WORKFLOW -->
-
-          <div class="workflow">
-
-            <div class="workflow-title">
-              AI Workflow
-            </div>
-
-            <div class="workflow-step">
-
-              <div class="step-number">01</div>
-
-              <div class="step-content">
-                <strong>Connect Data Sources</strong>
-                <span>GitLab · GitHub · Jira · Confluence · Teams</span>
-              </div>
-
-            </div>
-
-            <div class="workflow-step">
-
-              <div class="step-number">02</div>
-
-              <div class="step-content">
-                <strong>Ingest & Process</strong>
-                <span>Adapters · APIs · Background Jobs</span>
-              </div>
-
-            </div>
-
-            <div class="workflow-step">
-
-              <div class="step-number">03</div>
-
-              <div class="step-content">
-                <strong>Create Embeddings</strong>
-                <span>Documents → Embeddings → Vector Store</span>
-              </div>
-
-            </div>
-
-            <div class="workflow-step">
-
-              <div class="step-number">04</div>
-
-              <div class="step-content">
-                <strong>Retrieve Context</strong>
-                <span>Semantic Search + RAG</span>
-              </div>
-
-            </div>
-
-            <div class="workflow-step">
-
-              <div class="step-number">05</div>
-
-              <div class="step-content">
-                <strong>LLM Analysis</strong>
-                <span>Findings · Patterns · Root Causes</span>
-              </div>
-
-            </div>
-
-            <div class="workflow-step">
-
-              <div class="step-number">06</div>
-
-              <div class="step-content">
-                <strong>Action & Monitoring</strong>
-                <span>Workflow Execution · Alerts · Grafana</span>
-              </div>
-
-            </div>
-
-          </div>
-
-        </div>
-
-      </div>
+      <span>Angular</span>
+      <span>TypeScript</span>
+      <span>Node.js</span>
+      <span>Express.js</span>
+      <span>PostgreSQL</span>
+      <span>Prisma</span>
+      <span>JWT</span>
+      <span>AWS EC2</span>
+      <span>Nginx</span>
 
     </div>
 
-  </section>
 
+    <!-- PROJECT LINKS -->
+    <div class="project-links">
 
-  <!-- GENAI CAPABILITIES -->
+      <a
+        href="http://13.60.241.255/login"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="project-btn primary"
+      >
+        <span>↗</span>
+        Live Demo
+      </a>
 
-  <section>
+      <a
+        href="https://gitlab.com/gunagunasekar1996/placement-fe.git"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="project-btn"
+      >
+        GitLab Frontend
+      </a>
 
-    <div class="container">
-
-      <div class="section-header">
-
-        <div>
-          <div class="section-number">02 / CAPABILITIES</div>
-          <h2 class="section-title">What I work with</h2>
-        </div>
-
-      </div>
-
-
-      <div class="capabilities">
-
-        <div class="capability">
-
-          <div class="capability-number">01</div>
-
-          <h3>Generative AI</h3>
-
-          <p>
-            LLM-powered applications, prompt engineering,
-            structured AI responses and AI-assisted workflows.
-          </p>
-
-        </div>
-
-
-        <div class="capability">
-
-          <div class="capability-number">02</div>
-
-          <h3>RAG Systems</h3>
-
-          <p>
-            Embeddings, vector databases, semantic search and
-            retrieval-augmented generation pipelines.
-          </p>
-
-        </div>
-
-
-        <div class="capability">
-
-          <div class="capability-number">03</div>
-
-          <h3>AI Agents</h3>
-
-          <p>
-            AI workflows capable of retrieving information,
-            reasoning over context and executing application actions.
-          </p>
-
-        </div>
-
-
-        <div class="capability">
-
-          <div class="capability-number">04</div>
-
-          <h3>Workflow Automation</h3>
-
-          <p>
-            Trigger-action workflows connecting engineering,
-            communication and productivity platforms.
-          </p>
-
-        </div>
-
-
-        <div class="capability">
-
-          <div class="capability-number">05</div>
-
-          <h3>Full Stack Engineering</h3>
-
-          <p>
-            Angular frontends, Node.js APIs, PostgreSQL databases,
-            authentication and scalable application architecture.
-          </p>
-
-        </div>
-
-
-        <div class="capability">
-
-          <div class="capability-number">06</div>
-
-          <h3>Cloud & DevOps</h3>
-
-          <p>
-            Docker, AWS EC2, Nginx, Kubernetes, PM2,
-            monitoring and production deployments.
-          </p>
-
-        </div>
-
-      </div>
+      <a
+        href="https://gitlab.com/gunagunasekar1996/placement-backend.git"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="project-btn"
+      >
+        GitLab Backend
+      </a>
 
     </div>
 
-  </section>
+  </div>
 
 
-  <!-- ARCHITECTURE -->
+  <!-- AI MODULE -->
+  <div class="ai-module">
 
-  <section>
-
-    <div class="container">
-
-      <div class="section-header">
-
-        <div>
-          <div class="section-number">03 / SYSTEM DESIGN</div>
-          <h2 class="section-title">How I build AI applications</h2>
-        </div>
-
-      </div>
-
-
-      <div class="architecture">
-
-        <div class="architecture-flow">
-
-          <div class="architecture-box">
-            <strong>Angular</strong>
-            <span>AI Application UI</span>
-          </div>
-
-          <div class="arrow">→</div>
-
-          <div class="architecture-box">
-            <strong>Node.js</strong>
-            <span>API & Orchestration</span>
-          </div>
-
-          <div class="arrow">→</div>
-
-          <div class="architecture-box">
-            <strong>RAG</strong>
-            <span>Context Retrieval</span>
-          </div>
-
-          <div class="arrow">→</div>
-
-          <div class="architecture-box">
-            <strong>Vector DB</strong>
-            <span>Milvus</span>
-          </div>
-
-          <div class="arrow">→</div>
-
-          <div class="architecture-box">
-            <strong>LLM</strong>
-            <span>AI Reasoning</span>
-          </div>
-
-          <div class="arrow">→</div>
-
-          <div class="architecture-box">
-            <strong>Action</strong>
-            <span>Workflow Execution</span>
-          </div>
-
-        </div>
-
-      </div>
-
+    <div class="ai-module-label">
+      AI FEATURE
     </div>
 
-  </section>
+    <div class="ai-module-content">
 
-
-  <!-- OTHER PROJECTS -->
-
-  <section id="work">
-
-    <div class="container">
-
-      <div class="section-header">
-
-        <div>
-          <div class="section-number">04 / SELECTED WORK</div>
-          <h2 class="section-title">Other projects</h2>
-        </div>
-
-      </div>
-
-
-      <div class="project-list">
-
-
-        <div class="project-row">
-
-          <div class="project-index">01</div>
-
-          <h3>Placement Preparation Portal</h3>
-
-          <p>
-            Full-stack SaaS platform for college placement preparation,
-            student tests, authentication and automated evaluation.
-            Planned AI interview module extends the platform with
-            AI-powered candidate assessment.
-          </p>
-
-          <div class="project-type">
-            FULL STACK
-          </div>
-
-        </div>
-
-
-        <div class="project-row">
-
-          <div class="project-index">02</div>
-
-          <h3>Textile ERP Dashboard</h3>
-
-          <p>
-            Enterprise dashboard providing production, sales and
-            inventory visibility with role-based access.
-          </p>
-
-          <div class="project-type">
-            ENTERPRISE
-          </div>
-
-        </div>
-
-
-        <div class="project-row">
-
-          <div class="project-index">03</div>
-
-          <h3>Warehouse Management</h3>
-
-          <p>
-            Warehouse application covering receiving, rack allocation,
-            stock transfer and dispatch with QR-code operations.
-          </p>
-
-          <div class="project-type">
-            IONIC / ANGULAR
-          </div>
-
-        </div>
-
-
-        <div class="project-row">
-
-          <div class="project-index">04</div>
-
-          <h3>Sales & HR Applications</h3>
-
-          <p>
-            Mobile and web applications for order tracking,
-            geolocation, attendance, leave management and approvals.
-          </p>
-
-          <div class="project-type">
-            MOBILE
-          </div>
-
-        </div>
-
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- EXPERIENCE -->
-
-  <section id="experience">
-
-    <div class="container">
-
-      <div class="section-header">
-
-        <div>
-          <div class="section-number">05 / EXPERIENCE</div>
-          <h2 class="section-title">Professional experience</h2>
-        </div>
-
-      </div>
-
-
-      <div class="experience">
-
-
-        <div class="experience-row">
-
-          <div class="experience-date">
-            May 2025 — Aug 2026
-          </div>
-
-          <div>
-
-            <h3>Full Stack Developer</h3>
-
-            <div class="company">
-              Scorpius Networks
-            </div>
-
-            <p>
-              Built and maintained full-stack applications using
-              Angular and Node.js while working with Docker,
-              Kubernetes and production deployment workflows.
-              Worked on AI-enabled engineering automation and
-              integrations across development platforms.
-            </p>
-
-          </div>
-
-        </div>
-
-
-        <div class="experience-row">
-
-          <div class="experience-date">
-            Dec 2021 — Apr 2025
-          </div>
-
-          <div>
-
-            <h3>Software Developer</h3>
-
-            <div class="company">
-              WinsSoft Innovation Private Limited
-            </div>
-
-            <p>
-              Developed enterprise applications using Angular,
-              Node.js, PostgreSQL and .NET. Designed REST APIs,
-              authentication systems and database solutions.
-              Worked with AWS EC2, Docker, monitoring and
-              third-party OAuth integrations.
-            </p>
-
-          </div>
-
-        </div>
-
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- EDUCATION -->
-
-  <section>
-
-    <div class="container">
-
-      <div class="section-header">
-
-        <div>
-          <div class="section-number">06 / EDUCATION</div>
-          <h2 class="section-title">Education</h2>
-        </div>
-
-      </div>
-
-      <div class="experience">
-
-        <div class="experience-row">
-
-          <div class="experience-date">
-            2018
-          </div>
-
-          <div>
-            <h3>Master of Computer Applications</h3>
-            <div class="company">
-              Kongu Engineering College
-            </div>
-          </div>
-
-        </div>
-
-
-        <div class="experience-row">
-
-          <div class="experience-date">
-            2016
-          </div>
-
-          <div>
-            <h3>Bachelor of Computer Applications</h3>
-            <div class="company">
-              Sasurie College of Arts and Science
-            </div>
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </section>
-
-
-  <!-- CONTACT -->
-
-  <section id="contact">
-
-    <div class="container">
-
-      <div class="contact">
-
-        <h2>
-          Let's build<br>
-          intelligent software.
-        </h2>
+      <div>
+        <h3>AI Interview Module</h3>
 
         <p>
-          Open to GenAI, AI application development and
-          full-stack engineering opportunities.
+          Students can select a technical topic and take a 30-minute
+          AI-powered interview. The system evaluates responses and generates
+          structured feedback to help students improve their interview skills.
         </p>
+      </div>
 
-        <div class="buttons">
+      <div class="ai-flow">
 
-          <a
-            href="mailto:gunagunasekar1996@gmail.com"
-            class="btn btn-primary">
-            Email Me →
-          </a>
+        <span>Student</span>
+        <b>→</b>
 
-          <a
-            href="https://www.linkedin.com/in/gunasekar-k-790613147"
-            target="_blank"
-            class="btn">
-            LinkedIn
-          </a>
+        <span>Topic Selection</span>
+        <b>→</b>
 
-          <a
-            href="tel:+916383608437"
-            class="btn">
-            6383608437
-          </a>
+        <span>AI Interview</span>
+        <b>→</b>
 
-        </div>
+        <span>Evaluation</span>
+        <b>→</b>
+
+        <span>Feedback</span>
 
       </div>
 
     </div>
 
-  </section>
+  </div>
 
-
-  <!-- FOOTER -->
-
-  <footer>
-
-    <div class="container">
-
-      <div class="footer-content">
-
-        <span>
-          © 2026 Gunasekar K
-        </span>
-
-        <span>
-          GenAI Developer · Full Stack Engineer
-        </span>
-
-      </div>
-
-    </div>
-
-  </footer>
-
-</body>
-</html>
-```
+</section>
